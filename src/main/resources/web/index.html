@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Trolls Hunter</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h3 class="text-muted">Project : Trolls Hunter</h3>
+    </div>
+
+    <div class="jumbotron">
+        <h1>Hunt is open !</h1>
+
+        <p class="lead">Help Jean-Eudes to become the troll master</p>
+
+        <p><span id="incrementCounter" class="btn btn-lg btn-success" href="#" role="button">+</span></p>
+    </div>
+
+    <div class="row marketing">
+        <div class="col-lg-12">
+            <h1>Scores</h1>
+
+            <h2>Jean-Eudes : <span id="count">0</span></h2>
+        </div>
+    </div>
+</div>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="//code.jquery.com/jquery.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+<script>
+    $.get("counter", function (counter) {
+        $("#count").html(counter);
+    });
+
+    $("#incrementCounter").click(function () {
+        $.post("increaseCounter", function (counter) {
+            $("#count").html(counter);
+        });
+    });
+</script>
+</body>
+</html>
